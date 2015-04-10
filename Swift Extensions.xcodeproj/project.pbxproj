@@ -7,28 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ABB672B81AD3299800654BBD /* SortedDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB672B71AD3299800654BBD /* SortedDictionary.swift */; };
+		ABB672BA1AD33F9800654BBD /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB672B91AD33F9800654BBD /* Dictionary.swift */; };
 		ABEAC5381ACDB5BB00FA362B /* Swift Extensions.h in Headers */ = {isa = PBXBuildFile; fileRef = ABEAC5371ACDB5BB00FA362B /* Swift Extensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ABEAC53E1ACDB5BB00FA362B /* Swift Extensions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABEAC5321ACDB5BB00FA362B /* Swift Extensions.framework */; };
-		ABEAC5451ACDB5BB00FA362B /* Swift_ExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEAC5441ACDB5BB00FA362B /* Swift_ExtensionsTests.swift */; };
+		ABEAC54F1ACDB5ED00FA362B /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEAC54E1ACDB5ED00FA362B /* Array.swift */; };
+		ABEAC5531ACDB8BB00FA362B /* Examples.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEAC5521ACDB8BB00FA362B /* Examples.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		ABEAC53F1ACDB5BB00FA362B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = ABEAC5291ACDB5BB00FA362B /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = ABEAC5311ACDB5BB00FA362B;
-			remoteInfo = "Swift Extensions";
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
-		ABEAC5321ACDB5BB00FA362B /* Swift Extensions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Swift Extensions.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ABB672B71AD3299800654BBD /* SortedDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortedDictionary.swift; sourceTree = "<group>"; };
+		ABB672B91AD33F9800654BBD /* Dictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
+		ABEAC5321ACDB5BB00FA362B /* SwiftExtensions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftExtensions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABEAC5361ACDB5BB00FA362B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ABEAC5371ACDB5BB00FA362B /* Swift Extensions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Swift Extensions.h"; sourceTree = "<group>"; };
-		ABEAC53D1ACDB5BB00FA362B /* Swift ExtensionsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Swift ExtensionsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		ABEAC5431ACDB5BB00FA362B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		ABEAC5441ACDB5BB00FA362B /* Swift_ExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_ExtensionsTests.swift; sourceTree = "<group>"; };
+		ABEAC54E1ACDB5ED00FA362B /* Array.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
+		ABEAC5521ACDB8BB00FA362B /* Examples.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Examples.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,14 +32,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		ABEAC53A1ACDB5BB00FA362B /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				ABEAC53E1ACDB5BB00FA362B /* Swift Extensions.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -54,7 +39,6 @@
 			isa = PBXGroup;
 			children = (
 				ABEAC5341ACDB5BB00FA362B /* Swift Extensions */,
-				ABEAC5411ACDB5BB00FA362B /* Swift ExtensionsTests */,
 				ABEAC5331ACDB5BB00FA362B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -62,8 +46,7 @@
 		ABEAC5331ACDB5BB00FA362B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				ABEAC5321ACDB5BB00FA362B /* Swift Extensions.framework */,
-				ABEAC53D1ACDB5BB00FA362B /* Swift ExtensionsTests.xctest */,
+				ABEAC5321ACDB5BB00FA362B /* SwiftExtensions.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -73,6 +56,10 @@
 			children = (
 				ABEAC5371ACDB5BB00FA362B /* Swift Extensions.h */,
 				ABEAC5351ACDB5BB00FA362B /* Supporting Files */,
+				ABEAC54E1ACDB5ED00FA362B /* Array.swift */,
+				ABEAC5521ACDB8BB00FA362B /* Examples.swift */,
+				ABB672B71AD3299800654BBD /* SortedDictionary.swift */,
+				ABB672B91AD33F9800654BBD /* Dictionary.swift */,
 			);
 			path = "Swift Extensions";
 			sourceTree = "<group>";
@@ -81,23 +68,6 @@
 			isa = PBXGroup;
 			children = (
 				ABEAC5361ACDB5BB00FA362B /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		ABEAC5411ACDB5BB00FA362B /* Swift ExtensionsTests */ = {
-			isa = PBXGroup;
-			children = (
-				ABEAC5441ACDB5BB00FA362B /* Swift_ExtensionsTests.swift */,
-				ABEAC5421ACDB5BB00FA362B /* Supporting Files */,
-			);
-			path = "Swift ExtensionsTests";
-			sourceTree = "<group>";
-		};
-		ABEAC5421ACDB5BB00FA362B /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				ABEAC5431ACDB5BB00FA362B /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -116,9 +86,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		ABEAC5311ACDB5BB00FA362B /* Swift Extensions */ = {
+		ABEAC5311ACDB5BB00FA362B /* SwiftExtensions */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = ABEAC5481ACDB5BB00FA362B /* Build configuration list for PBXNativeTarget "Swift Extensions" */;
+			buildConfigurationList = ABEAC5481ACDB5BB00FA362B /* Build configuration list for PBXNativeTarget "SwiftExtensions" */;
 			buildPhases = (
 				ABEAC52D1ACDB5BB00FA362B /* Sources */,
 				ABEAC52E1ACDB5BB00FA362B /* Frameworks */,
@@ -129,28 +99,10 @@
 			);
 			dependencies = (
 			);
-			name = "Swift Extensions";
+			name = SwiftExtensions;
 			productName = "Swift Extensions";
-			productReference = ABEAC5321ACDB5BB00FA362B /* Swift Extensions.framework */;
+			productReference = ABEAC5321ACDB5BB00FA362B /* SwiftExtensions.framework */;
 			productType = "com.apple.product-type.framework";
-		};
-		ABEAC53C1ACDB5BB00FA362B /* Swift ExtensionsTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = ABEAC54B1ACDB5BB00FA362B /* Build configuration list for PBXNativeTarget "Swift ExtensionsTests" */;
-			buildPhases = (
-				ABEAC5391ACDB5BB00FA362B /* Sources */,
-				ABEAC53A1ACDB5BB00FA362B /* Frameworks */,
-				ABEAC53B1ACDB5BB00FA362B /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				ABEAC5401ACDB5BB00FA362B /* PBXTargetDependency */,
-			);
-			name = "Swift ExtensionsTests";
-			productName = "Swift ExtensionsTests";
-			productReference = ABEAC53D1ACDB5BB00FA362B /* Swift ExtensionsTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -162,9 +114,6 @@
 				ORGANIZATIONNAME = "Wim Van Renterghem";
 				TargetAttributes = {
 					ABEAC5311ACDB5BB00FA362B = {
-						CreatedOnToolsVersion = 6.2;
-					};
-					ABEAC53C1ACDB5BB00FA362B = {
 						CreatedOnToolsVersion = 6.2;
 					};
 				};
@@ -181,21 +130,13 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				ABEAC5311ACDB5BB00FA362B /* Swift Extensions */,
-				ABEAC53C1ACDB5BB00FA362B /* Swift ExtensionsTests */,
+				ABEAC5311ACDB5BB00FA362B /* SwiftExtensions */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		ABEAC5301ACDB5BB00FA362B /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		ABEAC53B1ACDB5BB00FA362B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -209,26 +150,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		ABEAC5391ACDB5BB00FA362B /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				ABEAC5451ACDB5BB00FA362B /* Swift_ExtensionsTests.swift in Sources */,
+				ABB672B81AD3299800654BBD /* SortedDictionary.swift in Sources */,
+				ABB672BA1AD33F9800654BBD /* Dictionary.swift in Sources */,
+				ABEAC5531ACDB8BB00FA362B /* Examples.swift in Sources */,
+				ABEAC54F1ACDB5ED00FA362B /* Array.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		ABEAC5401ACDB5BB00FA362B /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = ABEAC5311ACDB5BB00FA362B /* Swift Extensions */;
-			targetProxy = ABEAC53F1ACDB5BB00FA362B /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		ABEAC5461ACDB5BB00FA362B /* Debug */ = {
@@ -315,6 +244,7 @@
 		ABEAC5491ACDB5BB00FA362B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -326,12 +256,14 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		ABEAC54A1ACDB5BB00FA362B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -343,38 +275,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		ABEAC54C1ACDB5BB00FA362B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "Swift ExtensionsTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		ABEAC54D1ACDB5BB00FA362B /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "Swift ExtensionsTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
 		};
@@ -390,21 +290,14 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		ABEAC5481ACDB5BB00FA362B /* Build configuration list for PBXNativeTarget "Swift Extensions" */ = {
+		ABEAC5481ACDB5BB00FA362B /* Build configuration list for PBXNativeTarget "SwiftExtensions" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				ABEAC5491ACDB5BB00FA362B /* Debug */,
 				ABEAC54A1ACDB5BB00FA362B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-		};
-		ABEAC54B1ACDB5BB00FA362B /* Build configuration list for PBXNativeTarget "Swift ExtensionsTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				ABEAC54C1ACDB5BB00FA362B /* Debug */,
-				ABEAC54D1ACDB5BB00FA362B /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
