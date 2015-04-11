@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AB9E03551AD88AE3007692BE /* Readme.md in Sources */ = {isa = PBXBuildFile; fileRef = AB9E03541AD88AE3007692BE /* Readme.md */; };
 		ABB672B81AD3299800654BBD /* SortedDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB672B71AD3299800654BBD /* SortedDictionary.swift */; };
 		ABB672BA1AD33F9800654BBD /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB672B91AD33F9800654BBD /* Dictionary.swift */; };
 		ABEAC5381ACDB5BB00FA362B /* Swift Extensions.h in Headers */ = {isa = PBXBuildFile; fileRef = ABEAC5371ACDB5BB00FA362B /* Swift Extensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AB9E03541AD88AE3007692BE /* Readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = Readme.md; sourceTree = "<group>"; };
 		ABB672B71AD3299800654BBD /* SortedDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortedDictionary.swift; sourceTree = "<group>"; };
 		ABB672B91AD33F9800654BBD /* Dictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
 		ABEAC5321ACDB5BB00FA362B /* SwiftExtensions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftExtensions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -38,6 +40,7 @@
 		ABEAC5281ACDB5BB00FA362B = {
 			isa = PBXGroup;
 			children = (
+				AB9E03541AD88AE3007692BE /* Readme.md */,
 				ABEAC5341ACDB5BB00FA362B /* Swift Extensions */,
 				ABEAC5331ACDB5BB00FA362B /* Products */,
 			);
@@ -150,6 +153,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB9E03551AD88AE3007692BE /* Readme.md in Sources */,
 				ABB672B81AD3299800654BBD /* SortedDictionary.swift in Sources */,
 				ABB672BA1AD33F9800654BBD /* Dictionary.swift in Sources */,
 				ABEAC5531ACDB8BB00FA362B /* Examples.swift in Sources */,
