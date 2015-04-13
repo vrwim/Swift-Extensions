@@ -7,73 +7,71 @@
 //
 
 // TODO: make comparers Optional<> and if `is Equatable`, use ==
-// TODO: add to documentation with @param, @return
+// TODO: add to documentation with :param:, :returns:
 // TODO: probably quite a lot of checks for empty arrays, please check yourself for the time being
-// TODO: give closures better names
 // TODO: http://docs.mongodb.org/manual/core/aggregation-introduction/
 // TODO: http://www.oracle.com/technetwork/articles/java/ma14-java-se-8-streams-2177646.html
 
 extension Array {
     
     typealias Comparer = (T, T) -> Bool
+    typealias Condition = T -> Bool
+    typealias VoidAction = T -> Void
     
-    /// Checks the whole array if an item exists, by using the given closure
+    /// Checks the whole array if an item exists, by using the given condition
     ///
-    /// @return true if any item in the array conforms to the closure
-    func exists(closure: T -> Bool) -> Bool {
+    /// :returns: true if any item in the array conforms to the condition
+    func exists(condition: Condition) -> Bool {
         for item in self {
-            if closure(item) {
+            if condition(item) {
                 return true
             }
         }
         return false
     }
     
-    /// Finds the first item in the array that conforms to the closure
+    /// Finds the first item in the array that conforms to the condition
     ///
-    /// @return the item or nil if no item in the array conforms to the closure
-    func find(closure: T -> Bool) -> T? {
+    /// :returns: the item or nil if no item in the array conforms to the condition
+    func findFirst(condition: Condition) -> T? {
         for item in self {
-            if closure(item) {
+            if condition(item) {
                 return item
             }
         }
         return nil
     }
     
-    
-    /// Finds the first index in the array for which the value conforms to the closure
+    /// Finds the first index in the array for which the value conforms to the condition
     ///
-    /// @return the index or -1 if no item in the array conforms to the closure
-    func findIndex(closure: T -> Bool) -> Int {
+    /// :returns: the index or -1 if no item in the array conforms to the condition
+    func findFirstIndex(condition: Condition) -> Int {
         for counter in 0..<count {
-            if closure(self[counter]) {
+            if condition(self[counter]) {
                 return counter
             }
         }
         return -1
     }
     
-    
-    /// Finds the last item in the array that conforms to the closure
+    /// Finds the last item in the array that conforms to the condition
     ///
-    /// @return the item or nil if no item in the array conforms to the closure
-    func findLast(closure: T -> Bool) -> T? {
+    /// :returns: the item or nil if no item in the array conforms to the condition
+    func findLast(condition: Condition) -> T? {
         for var counter = count - 1; counter >= 0; counter -= 1 {
-            if closure(self[counter]) {
+            if condition(self[counter]) {
                 return self[counter]
             }
         }
         return nil
     }
     
-    
-    /// Finds the last index in the array for which the value conforms to the closure
+    /// Finds the last index in the array for which the value conforms to the condition
     ///
-    /// @return the index or -1 if no item in the array conforms to the closure
-    func findLastIndex(closure: T -> Bool) -> Int {
+    /// :returns: the index or -1 if no item in the array conforms to the condition
+    func findLastIndex(condition: Condition) -> Int {
         for var counter = count - 1; counter >= 0; counter -= 1 {
-            if closure(self[counter]) {
+            if condition(self[counter]) {
                 return counter
             }
         }
@@ -81,28 +79,23 @@ extension Array {
     }
     
     /// Executes the given closure on each value of the array
-    func forEach(closure: (T) -> Void) {
+    func forEach(action: VoidAction) {
         for item in self {
-            closure(item)
+            action(item)
         }
     }
     
-    
-    /// Removes all items that conform to the given closure
-    mutating func removeAll(closure: (T) -> Bool) {
-        for var counter = 0; counter < count; counter += 1 {
-            if closure(self[counter]) {
-                removeAtIndex(counter)
-                counter -= 1
-            }
-        }
+    /// Removes all items that satisfy the `predicate`
+    ///
+    /// :param: predicate A boolean predicate.
+    mutating func removeMatching(condition: Condition) {
+        self = filter {!condition($0)}
     }
     
-    
-    /// Checks if every item in the array conforms to the closure
-    func trueForAll(closure: T -> Bool) -> Bool {
+    /// Checks if every item in the array conforms to the given condition
+    func trueForAll(condition: Condition) -> Bool {
         for item in self {
-            if !closure(item) {
+            if !condition(item) {
                 return false
             }
         }
@@ -110,7 +103,7 @@ extension Array {
     }
     
     /// Compares this array with another array using the given comparer
-    /// @return true if each element of this array is equal to the element with the same index in the other array
+    /// :returns: true if each element of this array is equal to the element with the same index in the other array
     func equals(otherArray: [T], comparer: Comparer) -> Bool {
         if count == otherArray.count {
             for i in 0..<count {
@@ -125,7 +118,7 @@ extension Array {
     
     /// Casts each item to the specified class
     ///
-    /// @return a new array with each item as the given type
+    /// :returns: a new array with each item as the given type
     func cast<R>(type: R.Type) -> [R] {
         var result: [R] = []
         for item in self {
@@ -135,16 +128,16 @@ extension Array {
     }
     
     /// Counts the elements that satisfy the given condition
-    func count(closure: (T) -> Bool) -> Int {
+    func count(condition: Condition) -> Int {
         var count = 0
         for item in self {
-            count += closure(item) ? 1 : 0
+            count += condition(item) ? 1 : 0
         }
         return count
     }
     
     /// Compares the items using the given comparer and only returns non-equal values
-    /// @return the first items that are unique according to the comparer
+    /// :returns: the first items that are unique according to the comparer
     func distinct(comparer: Comparer) -> [T] {
         var result: [T] = []
         outerLoop: for item in self {
@@ -160,7 +153,7 @@ extension Array {
     
     /// A mapreduce aggregation function. The first closure maps the useful data, the second one reduces two items of the same type in one.
     ///
-    /// @return the aggregated value or nil if the array is empty
+    /// :returns: the aggregated value or nil if the array is empty
     func mapReduce<R>(map: (T) -> R, reduce: (R, R) -> R) -> R? {
         return first.map {
             dropFirst(self).reduce(map($0)) {
@@ -171,7 +164,7 @@ extension Array {
     
     /// Groups items in this array by a key defined through the closure groupDefiner
     ///
-    /// @return a dictionary [R:[T]] that contains the groups as keys and the elements for each key as an array
+    /// :returns: a dictionary [R:[T]] that contains the groups as keys and the elements for each key as an array
     func groupBy<R>(groupDefiner: T -> R) -> [R:[T]] {
         var result: [R: [T]] = [:]
         for item in self {
@@ -185,7 +178,7 @@ extension Array {
     
     /// Filters the array by type
     ///
-    /// @return an array that contains only elements that are of type R, casted to type R
+    /// :returns: an array that contains only elements that are of type R, casted to type R
     func ofType<R>(type: R.Type) -> [R] {
         var result: [R] = []
         for item in self {
@@ -196,12 +189,12 @@ extension Array {
         return result
     }
     
-    ///Joins the array with another array on a specific key, and then gives two matching elements to a closure to create a result type.
+    /// Joins the array with another array on a specific key, and then gives two matching elements to a closure to create a result type.
     ///
-    /// @param otherArray the other array to join
-    /// @param thisKeyClosure the closure that extracts the key from this array
-    /// @param otherKeyClosure the closure that extracts the key from the other array
-    /// @param resultClosure creates a resulttype from two inputtypes
+    /// :param: otherArray the other array to join
+    /// :param: thisKeyClosure the closure that extracts the key from this array
+    /// :param: otherKeyClosure the closure that extracts the key from the other array
+    /// :param: resultClosure creates a resulttype from two inputtypes
     func join<R, S: Equatable, P>(otherArray: [R], thisKeyClosure: T -> S, otherKeyClosure: R -> S, resultClosure: (T,R) -> P) -> [P] {
         var result: [P] = []
         for thisItem in self {
@@ -217,10 +210,10 @@ extension Array {
     /// Joins the array with another array on a specific key, and then gives two matching elements to a closure to create a result type.
     /// Groups the result by key. Faster than `.join().groupBy()`
     ///
-    /// @param otherArray the other array to join
-    /// @param thisKeyClosure the closure that extracts the key from this array
-    /// @param otherKeyClosure the closure that extracts the key from the other array
-    /// @param resultClosure creates a resulttype from two inputtypes
+    /// :param: otherArray the other array to join
+    /// :param: thisKeyClosure the closure that extracts the key from this array
+    /// :param: otherKeyClosure the closure that extracts the key from the other array
+    /// :param: resultClosure creates a resulttype from two inputtypes
     func groupJoin<R, S: Equatable, P>(otherArray: [R], thisKeyClosure: T -> S, otherKeyClosure: R -> S, resultClosure: (T,R) -> P) -> [S:[P]] {
         var result: [S:[P]] = [:]
         for thisItem in self {
@@ -248,16 +241,6 @@ extension Array {
                     break
                 }
             }
-        }
-        return result
-    }
-    
-    /// Selects items of interest from values in this array
-    /// Can be used with tuples like so: `array.select({item -> (Int, String) in (item.p1, item.p2)})` (type inference doesn't work in 1.2 yet)
-    func select<R>(closure: T -> R) -> [R] {
-        var result: [R] = []
-        for item in self {
-            result.append(closure(item))
         }
         return result
     }
@@ -297,8 +280,8 @@ extension Array {
         return skip(count - value)
     }
     
-    /// Skips items in the array while the closure returns true, then returns the remaining items in the array
-    func skipWhile(shouldContinue: T -> Bool) -> [T] {
+    /// Skips items in the array while the condition returns true, then returns the remaining items in the array
+    func skipWhile(shouldContinue: Condition) -> [T] {
         var result = count
         for (index, item) in enumerate(self) {
             if !shouldContinue(item) {
@@ -309,8 +292,8 @@ extension Array {
     }
     
     
-    /// Takes items in the array while the closure returns true, returns the array up to that index
-    func takeWhile(shouldContinue: T -> Bool) -> [T] {
+    /// Takes items in the array while the condition returns true, returns the array up to that index
+    func takeWhile(shouldContinue: Condition) -> [T] {
         var result = count
         for (index, item) in enumerate(self) {
             if !shouldContinue(item) {

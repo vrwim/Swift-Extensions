@@ -7,10 +7,5 @@
 //
 
 class Examples {
-    
-    func examples() {
-        
-        // TODO: Write nice examples
-	}
 
 }
